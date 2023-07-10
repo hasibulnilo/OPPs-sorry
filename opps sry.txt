@@ -1,0 +1,257 @@
+1******overloading******
+
+public class Overloading {
+    void show(){
+        System.out.println("NO perameter");
+        }
+    void show(int a){
+            System.out.println("a:"+a);
+    }
+}
+___________Next class_________
+public class Overloaddemo {
+ 
+        public static void main(String[]args){
+         Overloading ob=new Overloading() ;      
+    ob.show();
+    ob.show(12);
+        }
+}
+
+
+
+2*********overriding********
+
+public class Vehicle{
+    void run(){
+        System.out.println("Vhehicles is running");     
+    }
+    
+}
+_____________Next class_________
+public class Bike extends Vehicle{
+    void run(){
+        System.out.println("Bike is running");
+        
+    }
+    public static void main(String args[]){
+        Bike obj=new Bike();
+        obj.run();
+    }
+}
+
+
+
+3**************Encapsulation**************
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+  
+   public String getName(){
+        return name;
+    }
+    public int getAge(){
+        return age;
+    }
+    public static void main(String [] args){
+        Person person1=new Person("Niloy",25);
+        System.out.println("Name:"+person1.getName());
+        System.out.println("Age:"+person1.getAge());
+    }
+}
+
+
+
+4************Abstraction********
+
+abstract class Vehicle{ 
+abstract void run(); 
+} 
+_________new class________
+class Bike extends Vehicle{ 
+void run(){System.out.println("Bike is running");} 
+public static void main(String args[]){ 
+Vehicle obj = new Bike(); 
+obj.run(); 
+} 
+}
+
+
+5***********Multilevel inheritance***********
+
+public class A {
+String getName(){  
+    return "programmer by";
+} 
+}
+_________New Class_____
+public class B extends A {
+    String getCodinglanguage (){
+    return "java";
+}
+}
+__________New Class__________
+public class C extends B {
+    int getLineofcode(){
+    return 20;
+}
+
+public static void main ( String [] args){
+C program=new C();
+System.out.println(" i am "+program.getName()+" and i code in "+program.getCodinglanguage()+" This is has "+program.getLineofcode()+" lines.");
+}
+}   
+
+
+6**********Multiple inheritance***********
+
+
+interface Swimmer {
+void swim();
+}
+interface Jumper {
+void jump();
+}
+class Athlete implements Swimmer, Jumper {
+public void swim() {
+System.out.println("The athlete swims");
+}
+public void jump() {
+System.out.println("The athlete jumps");
+}
+}
+public class MultipleInhertance {
+public static void main(String args[]) {
+Athlete atlt = new Athlete();
+atlt.swim();
+atlt.jump();
+}
+}
+
+
+7*********Runtime Polymorphism************
+
+class Shape {
+public void draw() {
+System.out.println("Drawing a shape");
+}
+public void erase() {
+System.out.println("Erasing a shape");
+}
+}
+_______new class________
+class Circle extends Shape {
+public void draw() {
+System.out.println("Drawing a circle");
+}
+public void erase() {
+System.out.println("Erasing a circle");
+}
+}
+
+class Triangle extends Shape {
+public void draw() {
+System.out.println("Drawing a triangle");
+}
+public void erase() {
+System.out.println("Erasing a triangle");
+}
+}
+
+class Square extends Shape {
+public void draw() {
+System.out.println("Drawing a square");
+}
+public void erase() {
+System.out.println("Erasing a square");
+}
+}
+public class Polymorphism {
+public static void main(String args[]) {
+Shape s1 = new Circle();
+Shape s2 = new Triangle();
+Shape s3 = new Square();
+s1.draw();  
+s1.erase();
+s2.draw(); 
+s2.erase();
+s3.draw(); 
+s3.erase();
+}
+}
+
+
+8**********Try catch*********
+
+public class MultipleTryCatch {
+public static void main(String args[]) {
+try {
+int[] arr = new int[5];
+int i = 10 / 0;
+arr[5] = 10;
+} catch (ArithmeticException e) {
+System.out.println("ArithmeticException occurred");
+} catch(ArrayIndexOutOfBoundsException e){
+System.out.println("ArrayIndexOutOfBoundsException occurred");
+} catch (Exception e) {
+System.out.println("Exception occurred");
+}
+}
+}
+
+
+9********** MY pack***********
+
+package mypack;
+
+public class Circle {
+	public void display(){
+		System.out.println("This is a circle.");
+	}
+public void area(double r){
+System.out.println("Area of circle= " + (3.1416 * r * r));
+}
+}
+
+package mypack;
+
+public class ImportClass {
+public static void main(String args[]) {
+mypack.Circle c1= new mypack.Circle();
+c1.display();
+c1.area(3);
+}
+}
+
+10*********Prime number********
+
+import java.util.Scanner;
+public class PrimeNumbers {
+public static void main(String args[]) {
+int min, max, point;
+Scanner s= new Scanner(System.in);
+System.out.println("Enter the starting numbers: ");
+min= s.nextInt();
+System.out.println("Enter the ending number: ");
+max= s.nextInt();
+System.out.println("The prime numbers between the interval " + min + " and " + max +" are: ");
+for(int i= min; i<= max; i++){
+point= 0;
+for(int j= 2; j<= i/2; j++){
+if(i%j == 0){
+point= 1;
+break;
+}
+}
+if(point == 0 && i != 1 && i !=0){
+System.out.print(i + ", ");
+}
+}
+}
+}
